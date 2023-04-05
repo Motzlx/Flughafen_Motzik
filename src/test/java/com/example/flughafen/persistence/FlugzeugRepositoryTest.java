@@ -51,24 +51,24 @@ class FlugzeugRepositoryTest {
 
 
 
-        schwechat.builder()
+        schwechat = schwechat.builder()
                 .flughafenName("Schwechat")
                 .country(austria)
                 .build();
 
-        newYork.builder()
+        newYork = newYork.builder()
                 .country(austria)
                 .flughafenName("Kenn i di")
                 .flugzeuge(null)
                 .build();
 
-        austria = Country.builder()
+        austria = austria = Country.builder()
 
                 .iso2Code("Deutschland")
                 .countryName("DE")
                 .build();
 
-        flug.builder()
+        flug = flug.builder()
                 .flugzeug(f1)
                 .abflugZeit(LocalDateTime.now())
                 .ankunftsZeit(LocalDateTime.now())
@@ -77,7 +77,7 @@ class FlugzeugRepositoryTest {
                 .destinationFlughafen(null)
                 .build();
 
-        f1.builder()
+        f1 = f1.builder()
                 .flugzeugType("Boeing")
                 .fuelInLitres(100)
                 .geflogeneFluege(fluege)
