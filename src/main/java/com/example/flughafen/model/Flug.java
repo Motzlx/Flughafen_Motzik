@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity(name="Flug")
 @Data
+@Table
 public class Flug extends AbstractPersistable<Long> {
 
 
@@ -26,6 +27,7 @@ public class Flug extends AbstractPersistable<Long> {
 
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
     private Flughafen sourceFlughafen;
+
 
     @OneToMany
     private List<Passagier> passagierList;
