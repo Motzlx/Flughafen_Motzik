@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import java.util.List;
 
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,6 +37,7 @@ public class Flugzeug extends AbstractPersistable<Long> {
     private List<Flug> geflogeneFluege;
 
 
-
-
+    public Flughafen getCurrentFlughafen() {
+        return currentFlughafen;
+    }
 }
