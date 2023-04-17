@@ -1,0 +1,18 @@
+GET  http://localhost:8080/api/flughafen/
+
+> {%
+ client.test("Request executed successfully", function() {
+ client.assert(response.status === 200, "Response status is not 200");
+ });
+ %}
+
+###
+POST  http://localhost:8080/api/flughafen/
+Content-Type: application/json
+
+{
+  "flughafenName" : "Schwechat",
+  "iso2Code" : "AT",
+  "countryName" : "Austria"
+
+}

@@ -59,6 +59,7 @@ class FlughafenRepositoryTest {
 
         f1 = Flugzeug.builder()
 
+                .id(1L)
                 .currentFlughafen(schwechat)
                 .flugzeugType("Boeing")
                 .fuelInLitres(100)
@@ -67,6 +68,7 @@ class FlughafenRepositoryTest {
 
         f2 = Flugzeug.builder()
 
+                .id(2L)
                 .currentFlughafen(schwechat)
                 .flugzeugType("Boeing")
                 .fuelInLitres(100)
@@ -74,6 +76,7 @@ class FlughafenRepositoryTest {
 
         f3 = Flugzeug.builder()
 
+                .id(3L)
                 .currentFlughafen(schwechat)
                 .flugzeugType("Boeing")
                 .fuelInLitres(100)
@@ -81,7 +84,7 @@ class FlughafenRepositoryTest {
 
 
 
-        schwechat.addFlugzeuge(f1,f2,f3);
+        //schwechat.addFlugzeuge(f1,f2,f3);
                flughafenRepository.save(schwechat);
 
 
@@ -90,7 +93,10 @@ class FlughafenRepositoryTest {
         var saved = flughafenRepository.save(schwechat);
         assertThat(saved).isEqualTo(schwechat);
        assertThat(saved.getId()).isNotNull();
-       List.of(f1,f2,f3).forEach(flugzeug -> {
+       System.out.println(f1);
+        System.out.println(f2);
+        System.out.println(f3);
+      List.of(f1,f2,f3).forEach(flugzeug -> {
            assertThat(flugzeug.getId()).isNotNull();
        });
 

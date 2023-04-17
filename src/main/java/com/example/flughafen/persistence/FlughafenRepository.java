@@ -11,4 +11,6 @@ import java.util.List;
 public interface FlughafenRepository extends JpaRepository<Flughafen,Long> {
 
 
+
+
 }

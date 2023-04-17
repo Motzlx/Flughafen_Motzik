@@ -86,12 +86,14 @@ class FlugzeugRepositoryTest {
                 .build();
 
         fluege.add(flug);
+        flugzeugRepository.save(f1);
 
         System.out.println(f1);
         System.out.println(schwechat);
         System.out.println(newYork);
         System.out.println(fluege);
         System.out.println(flug);
+        System.out.println(flugzeugRepository);
 
     }
 

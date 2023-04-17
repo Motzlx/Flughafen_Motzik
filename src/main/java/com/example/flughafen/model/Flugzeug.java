@@ -17,6 +17,10 @@ import java.util.List;
 @Table(name = "Flugzeug")
 public class Flugzeug extends AbstractPersistable<Long> {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
 
     @Column(name = "FlugzeugType")
     private String flugzeugType;
@@ -29,11 +33,11 @@ public class Flugzeug extends AbstractPersistable<Long> {
 
 
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(foreignKey =  @ForeignKey(name="FK_flugzeug_2_flughafen"))
     private Flughafen currentFlughafen;
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Flug> geflogeneFluege;
 
 
