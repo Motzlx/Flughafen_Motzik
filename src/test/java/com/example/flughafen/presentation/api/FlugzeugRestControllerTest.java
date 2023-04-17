@@ -2,9 +2,11 @@ package com.example.flughafen.presentation.api;
 
 import com.example.flughafen.model.Flughafen;
 import com.example.flughafen.model.Flugzeug;
+import com.example.flughafen.persistence.FlugzeugRepository;
 import com.example.flughafen.service.FlugzeugService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -22,11 +24,14 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 
 import java.util.List;
 
-@WebMvcTest
+@WebMvcTest(FlugzeugRestController.class)
 public class FlugzeugRestControllerTest {
 
     @MockBean
     private FlugzeugService flugzeugService;
+
+    @MockBean
+    private FlugzeugRepository flugzeugRepository;
 
     @Autowired
     private MockMvc mockMvc;
@@ -46,7 +51,7 @@ public class FlugzeugRestControllerTest {
         var request = get("/api/flugzeuge").accept(MediaType.APPLICATION_JSON);
         when (flugzeugService.getAllFlugzeug()).thenReturn(List.of(Flugzeug.builder()
                             .flugzeugType("Boeing")
-                            .currentFlughafen(null)
+
                 .fuelInLitres(100).numberOfPassengers(100).build()));
 
         //expect

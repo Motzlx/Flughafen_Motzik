@@ -1,6 +1,7 @@
 package com.example.flughafen.presentation.api;
 
 import com.example.flughafen.service.FlughafenService;
+import com.example.flughafen.service.commands.CreateFlughafenCommand;
 import com.example.flughafen.service.dtos.FlughafenDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
@@ -42,9 +43,9 @@ public class FlughafenRestController {
     }
 
     @PostMapping({"", "/"})
-    public HttpEntity<FlughafenDto> createFlughafen(@RequestParam String flughafenName, String iso2Code, String countryName) {
+    public HttpEntity<FlughafenDto> createFlughafen(@RequestBody CreateFlughafenCommand flughafenCommand) {
 
-        return Optional.ofNullable(flughafenService.createFlughafen(flughafenName,iso2Code,countryName))
+        return Optional.ofNullable(flughafenService.createFlughafen(flughafenCommand.flughafenName(), flughafenCommand.name(), flughafenCommand.iso2Code()))
                 .map(FlughafenDto::new)
                 .map(dto -> ResponseEntity.created(createFlughafenUri(dto)).body(dto))
                 .orElse(ResponseEntity.noContent().build());

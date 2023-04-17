@@ -40,7 +40,9 @@ public class FlugzeugService {
 
 
 
-    public Flugzeug createFlugzeug(String flugzeugTyp,  int noOFPassengers, int fuelLitres, String flughafenName, String iso2Code, String countryName ) {
+    @Transactional
+    public Flugzeug createFlugzeug(String flugzeugTyp,  int numberOfPassangers, int fuelInLitres, String flughafenName, String iso2Code, String countryName ) {
+
 
 
         Country austria = Country.builder().countryName(countryName).iso2Code(iso2Code).build();
@@ -52,7 +54,8 @@ public class FlugzeugService {
 
         Flugzeug f1 = Flugzeug.builder()
                 .flugzeugType(flugzeugTyp)
-                .fuelInLitres(fuelLitres)
+                .numberOfPassengers(numberOfPassangers)
+                .fuelInLitres(fuelInLitres)
                 .currentFlughafen(fh1)
                 .build();
 
@@ -60,6 +63,7 @@ public class FlugzeugService {
         return f1;
 
     }
+
 
     public void updateFlugzeug(String flugzeugBezeichnung, int fuelInLitres, int numOfPassengers, Long id) {
 

@@ -30,7 +30,7 @@ public class FlughafenService {
     public Flughafen createFlughafen(String flugzeugName, String iso2Code, String countryName) {
 
         f1 = Flughafen.builder()
-                .flugzeuge(null)
+
                 .flughafenName(flugzeugName)
                 .country(Country.builder().iso2Code(iso2Code).countryName(countryName).build())
                 .build();

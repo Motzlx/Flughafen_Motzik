@@ -2,13 +2,13 @@ package com.example.flughafen.presentation.api;
 
 import com.example.flughafen.service.FlughafenService;
 import com.example.flughafen.service.FlugzeugService;
+import com.example.flughafen.service.commands.CreateFlugzeugCommand;
 import com.example.flughafen.service.dtos.FlughafenDto;
 import com.example.flughafen.service.dtos.FlugzeugDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -27,20 +27,21 @@ public class FlugzeugRestController {
 
 
 
+    @GetMapping
     public HttpEntity<List<FlugzeugDto>> getAllFlugzeuge() {
         return ResponseEntity.ok(flugzeugService
                 .getAllFlugzeug()
                 .stream()
                 .map(FlugzeugDto::new)
                 .toList());
-
-
     }
 
 
-    private HttpEntity<FlugzeugDto> createFlugzeug(String flugzeugBezeichnung, int fuelInLitres, int numberOfPassangers, String flughafenName, String iso2Code, String countryName) {
+    @PostMapping({"", "/"})
+    private HttpEntity<FlugzeugDto> createFlugzeug(@RequestBody CreateFlugzeugCommand createFlugzeugCommand) {
 
-        return Optional.ofNullable(flugzeugService.createFlugzeug(flugzeugBezeichnung,fuelInLitres,numberOfPassangers,flughafenName,iso2Code,countryName))
+        return Optional.ofNullable(flugzeugService.createFlugzeug(createFlugzeugCommand.flugzeugTyp(), createFlugzeugCommand.numberOfPassengers(),createFlugzeugCommand.fuelInLitres(),
+                        createFlugzeugCommand.flughafenName(),createFlugzeugCommand.iso2Code(),createFlugzeugCommand.name()))
                 .map(FlugzeugDto::new)
                 .map(flugzeugDto -> ResponseEntity.created(createFlugzeugUri(flugzeugDto)).body(flugzeugDto))
                 .orElse(ResponseEntity.noContent()

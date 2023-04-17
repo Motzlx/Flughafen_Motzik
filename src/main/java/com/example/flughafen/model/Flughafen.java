@@ -21,6 +21,10 @@ import java.util.Objects;
 @Table(name="flughafen")
 public class Flughafen extends AbstractPersistable<Long> {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
 
     @Column(name = "flughafen_name")
     private String flughafenName;

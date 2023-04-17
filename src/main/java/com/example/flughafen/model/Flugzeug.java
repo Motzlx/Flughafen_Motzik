@@ -1,6 +1,7 @@
 package com.example.flughafen.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class Flugzeug extends AbstractPersistable<Long> {
 
     @Column(name = "numOfPassangers")
     private int numberOfPassengers;
+
 
     @Column(name = "fuelInLitres")
     private int fuelInLitres;
