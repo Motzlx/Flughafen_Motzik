@@ -46,4 +46,10 @@ public class Flugzeug extends AbstractPersistable<Long> {
     public Flughafen getCurrentFlughafen() {
         return currentFlughafen;
     }
+
+
+    public void flugAbgeschlossen(Flug flug) {
+        geflogeneFluege.add(flug);
+
+    }
 }

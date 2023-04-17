@@ -26,7 +26,7 @@ public class CountryRestController {
 
 
     @GetMapping
-    public HttpEntity<List<CountryDto>> getAllCountries(@RequestBody CreateCountryCommand createCountryCommand) {
+    public HttpEntity<List<CountryDto>> getAllCountries() {
 
         return ResponseEntity.ok(countryService.getAllCountries()
                 .stream()
@@ -36,7 +36,7 @@ public class CountryRestController {
     }
 
 
-    @PostMapping({"","/"})
+   /* @PostMapping({"/add"})
     public HttpEntity<CountryDto> createCounrty(@RequestBody CreateCountryCommand createCountryCommand) {
 
         return Optional.ofNullable(countryService.createCountry(createCountryCommand.name(), createCountryCommand.iso2Code()))
@@ -45,7 +45,7 @@ public class CountryRestController {
                 .orElse(ResponseEntity.noContent()
                         .build());
 
-    }
+    }*/
 
     private URI createCountryUri(CountryDto countryDto) {
 
