@@ -1,6 +1,7 @@
 package com.example.flughafen.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,10 @@ public abstract class AbstractPerson extends AbstractPersistable<Long> {
 
     @Column(length = 255)
     private String userName;
+
+    @Embedded
+    @Column(name = "address")
+    private Address address;
 
 
     @Column(length = 32)

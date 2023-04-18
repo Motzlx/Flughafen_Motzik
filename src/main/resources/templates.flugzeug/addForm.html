@@ -31,7 +31,7 @@
       <div class="col">
         <label for="NumOfPassangers" class="form-label">NumOfPassangers</label>
         <input type="number" class="form-control" id="width"  th:field="*{NumOfPassangers}" aria-describedby="widthHelp">
-        <div id="NumOfPassangers" class="form-text">Between 0 and 4096!</div>
+        <div id="NumOfPassangers" class="form-text">Between 50 and 250!</div>
         <p th:if="${#fields.hasErrors('NumOfPassangers')}" th:errorclass="error" th:errors="*{NumOfPassangers}" />
       </div>
       <div class="col">

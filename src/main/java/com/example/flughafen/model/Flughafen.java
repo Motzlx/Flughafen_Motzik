@@ -30,6 +30,8 @@ public class Flughafen extends AbstractPersistable<Long> {
     private String flughafenName;
 
 
+    @Embedded
+    private Address flughafenAddress;
 
     @Builder.Default
     @ElementCollection

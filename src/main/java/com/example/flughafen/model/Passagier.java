@@ -19,6 +19,8 @@ public class Passagier extends AbstractPerson {
     @OneToOne
     private Country country;
 
+
+
     @Builder
     public Passagier(String userName, String firstName, String lastName) {
         super(userName, firstName, lastName);

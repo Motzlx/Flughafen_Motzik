@@ -1,27 +1,127 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+abstract class AbstractPerson{
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
+    String           userName
+    Address          address
+    String           firstName
+    String           lastName
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class Address {
+
+    String          streetName
+    String          zipCode
+    String          city
+    Country         country
+
 }
+
+class Country {
+    String      iso2Code
+    String      countryName
+
+}
+
+class Email {
+    private String address
+    private EmailType type
+
+}
+
+enum EmailType {
+    PRIVATE
+    BUSINESS
+}
+
+class Flug  {
+
+    Flughafen           destinationFlughafen
+    Flughafen           sourceFlughafen
+    Flugzeug            flieger
+    List<PassagierFlug> passagierList
+    LocalDateTime       abflugZeit
+    LocalDateTime       ankunftZeit
+
+
+}
+
+class Flughafen{
+
+    String                      flughafenName
+    List<FlughafenFlugzeug>     flugzeuge
+    Country                     country
+    Address                     address
+
+}
+
+class FlughafenFlugzeug{
+
+    Flugzeug        flugzeuge
+    LocalDateTime   timeStamp
+
+}
+
+class Flugzeug{
+
+    String          flugzeugType
+    Integer         numberOfPassangers
+    Integer         fuelInLitre
+    Flughafen       currentFlughafen
+    List<Flug>      geflogeneFluege
+
+}
+
+class Passagier{
+
+    List<Flug>       geflogeneFluege
+    Country          country
+
+
+
+}
+
+class PassagierFlug{
+
+    Passagier           passagier
+    LocalDateTime       timeStamp
+}
+
+class PhoneNumber{
+
+    Integer         countryCode
+    Integer         areaCode
+    String          serialNumber
+
+}
+
+class Pilot {
+
+    Address         appartmentAddress
+    Intger          noOfFlights
+    LocalDateTime   yearOfGraduation
+    Set<Email>      emailAddresses
+    PhoneNumber     mobilePhone
+    PhoneNumber     buisnessPhone
+
+
+}
+
+Pilot --> AbstractPerson
+Passagier --> AbstractPerson
+Flug <-- "1..n" PassagierFlug : references >
+Passagier *--> "1..n" PassagierFlug
+Flugzeug <-- "1..n" FlughafenFlugzeug : references <
+Flughafen "1" *-- "1..n" FlughafenFlugzeug
+Pilot  *-- "1..n" Flug
+Flug -- "1..1" Flugzeug
+AbstractPerson --* "1..n" PhoneNumber
+Pilot --* "1..n" Email
+Email -down-> EmailType
+AbstractPerson --* "1..n" Address
+Country -- Address
+
 
 @enduml
