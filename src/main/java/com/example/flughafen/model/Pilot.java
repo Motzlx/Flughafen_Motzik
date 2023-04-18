@@ -24,11 +24,13 @@ public class Pilot extends AbstractPerson {
             @AttributeOverride(name = "zipCode", column = @Column(name = "appartment_zip_code", length=16)),
             @AttributeOverride(name = "city", column = @Column(name = "appartment_city", length=64)),
     })
+    
     @AssociationOverrides({
             @AssociationOverride(name = "country",
                     joinColumns = {@JoinColumn(name = "studio_country_id")},
                     foreignKey = @ForeignKey(name = "FK_pilot_appartment_country"))
     })
+    
     private Address studioAddress;
     @Column(name = "noOfFlights")
     private Integer noOfFlights;
@@ -58,8 +60,6 @@ public class Pilot extends AbstractPerson {
             @AttributeOverride(name = "serialNumber", column = @Column(name = "business_serial_number", length=16)),
     })
     private PhoneNumber businessPhoneNumber;
-
-
 
     @Builder
     public Pilot(String userName, String firstName, String lastName, Integer noOfFlights, LocalDateTime yearOfGraduation) {

@@ -6,11 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+//save airports
 @Repository
 public interface FlughafenRepository extends JpaRepository<Flughafen,Long> {
-
-
-
 
 }

@@ -6,6 +6,9 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
 
+
+
+// Abstract class for people
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor

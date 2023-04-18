@@ -25,11 +25,8 @@ public class Flughafen extends AbstractPersistable<Long> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column(name = "flughafen_name")
     private String flughafenName;
-
-
 
     @Builder.Default
     @ElementCollection
@@ -45,7 +42,6 @@ public class Flughafen extends AbstractPersistable<Long> {
     }
 
     public Flughafen addFlugzeug(Flugzeug flugzeug) {
-
         Objects.requireNonNull(flugzeug, "Flugzeug cannot be null");
         FlughafenFlugzeug flughafenFlugzeug = createFlughafenFlugzeug(flugzeug);
         flugzeuge.add(flughafenFlugzeug);
@@ -53,10 +49,7 @@ public class Flughafen extends AbstractPersistable<Long> {
     }
 
     private FlughafenFlugzeug createFlughafenFlugzeug(Flugzeug flugzeug) {
-
         var flughafenFlugzeug = FlughafenFlugzeug.builder().flugzeug(flugzeug).build();
         return flughafenFlugzeug;
     }
-
-
 }
