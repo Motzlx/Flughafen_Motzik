@@ -3,7 +3,6 @@ package com.example.flughafen.presentation.web;
 public interface ControllerSupport {
 
     final static String ADD_PATH = "/add";
-    //    final static String ADD_ROUTE = BASE_ROUTE + ADD_PATH;  // /photos/add
     final static String KEY_PATH_VAR = "/{key}";
     final static String EDIT_PATH = KEY_PATH_VAR + "/edit";
     final static String DELETE_PATH = KEY_PATH_VAR + "/delete";
