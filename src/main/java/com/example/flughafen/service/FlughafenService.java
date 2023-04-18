@@ -47,10 +47,4 @@ public class FlughafenService {
         return flughafenRepository.getById(id);
     }
 
-
-
-
-
-
-
 }

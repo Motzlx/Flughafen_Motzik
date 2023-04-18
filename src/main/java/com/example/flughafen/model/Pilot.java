@@ -29,7 +29,7 @@ public class Pilot extends AbstractPerson {
                     joinColumns = {@JoinColumn(name = "studio_country_id")},
                     foreignKey = @ForeignKey(name = "FK_pilot_appartment_country"))
     })
-    private Address appartmentAddress;
+    private Address studioAddress;
     @Column(name = "noOfFlights")
     private Integer noOfFlights;
 

@@ -5,6 +5,8 @@ import jakarta.persistence.AttributeConverter;
 import java.util.Optional;
 import java.util.function.Function;
 
+// Convert enum to string for db
+
 public class AbstractEnumToStringConverter <E extends Enum> implements AttributeConverter<E, String> {
 
     private final Function<E, String> toDbValue;

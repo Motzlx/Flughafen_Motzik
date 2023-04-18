@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 
+
+// abstract class for persistable countries
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -17,9 +19,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Table(name="Country")
 
 public class Country extends AbstractPersistable<Long> {
-
-
-
     @Column(name="iso2Code")
     private String iso2Code;
 

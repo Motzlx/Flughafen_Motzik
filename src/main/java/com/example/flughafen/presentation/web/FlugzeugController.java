@@ -25,7 +25,8 @@ import java.util.Optional;
 public class FlugzeugController implements ControllerSupport {
     private final FlughafenRepository flughafenRepository;
 
-    final static String BASE_ROUTE = "/api/flugzeuge";
+    final static String BASE_ROUTE = "/flugzeuge";
+    final static String TEMPLATE_BASE_DIR = "flugzeug/";
 
     public final FlugzeugService flugzeugService;
 
@@ -133,7 +134,7 @@ public class FlugzeugController implements ControllerSupport {
 
     @Override
     public String getTemplateBaseDir() {
-        return null;
+        return TEMPLATE_BASE_DIR;
     }
 
     @Override

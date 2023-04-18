@@ -3,6 +3,8 @@ package com.example.flughafen.persistence.converter;
 import com.example.flughafen.model.EmailType;
 import jakarta.persistence.Converter;
 
+
+// Convert email type enum to string for db
 @Converter(autoApply = true)
 
 public class EmailTypeConverter extends AbstractEnumToStringConverter<EmailType> {

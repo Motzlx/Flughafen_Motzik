@@ -14,14 +14,10 @@ import java.time.LocalDateTime;
 @Builder
 @Embeddable
 public class FlughafenFlugzeug {
-
     @ManyToOne (cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(foreignKey = @ForeignKey(name = "FK_flughafen_2_flugzeug"))
     private Flugzeug flugzeug;
 
     @Column(name = "assignment_ts")
     private LocalDateTime timeStamp;
-
-
-
 }

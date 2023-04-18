@@ -56,4 +56,13 @@ public class FlugzeugRestController {
             throw new RuntimeException(uriSyntaxEx);
         }
     }
+  
+    @getMapping("/api/flugzeug/{key}")
+    public HttpEntity<FlugzeugDto> getFlugzeug(@PathVariable String key){
+      return flugzeugService.getFlugzeug(key)
+        .map(FlugzeugDto::new)
+        .map(ResponseEntity::ok)
+        .orElse(ResponseEntity.notFound)
+        .build()
+    }
 }

@@ -13,6 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+
+// Class for persistable flights
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,8 +22,6 @@ import java.util.Objects;
 @Data
 @Table
 public class Flug extends AbstractPersistable<Long> {
-
-
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
     private Flugzeug flugzeug;
 
@@ -30,7 +30,6 @@ public class Flug extends AbstractPersistable<Long> {
 
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
     private Flughafen sourceFlughafen;
-
 
     @Builder.Default
     @ElementCollection
@@ -55,8 +54,6 @@ public class Flug extends AbstractPersistable<Long> {
     }
 
     private PassagierFlug createPassagierFlug(Passagier passagier) {
-
-
             var passagierFlug = PassagierFlug.builder().passagier(passagier).build();
             return passagierFlug;
         }

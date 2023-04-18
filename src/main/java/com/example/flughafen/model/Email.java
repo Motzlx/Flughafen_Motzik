@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+// abstract clas for email addresses
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

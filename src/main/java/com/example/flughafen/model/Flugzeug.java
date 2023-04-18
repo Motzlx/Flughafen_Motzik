@@ -22,18 +22,14 @@ public class Flugzeug extends AbstractPersistable<Long> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column(name = "FlugzeugType")
     private String flugzeugType;
 
     @Column(name = "numOfPassangers")
     private int numberOfPassengers;
 
-
     @Column(name = "fuelInLitres")
     private int fuelInLitres;
-
-
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(foreignKey =  @ForeignKey(name="FK_flugzeug_2_flughafen"))
@@ -42,11 +38,9 @@ public class Flugzeug extends AbstractPersistable<Long> {
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Flug> geflogeneFluege;
 
-
     public Flughafen getCurrentFlughafen() {
         return currentFlughafen;
     }
-
 
     public void flugAbgeschlossen(Flug flug) {
         geflogeneFluege.add(flug);

@@ -18,5 +18,4 @@ public class PhoneNumber {
     private Integer areaCode;
     @Column(length = 16)
     private String serialNumber;
-
 }

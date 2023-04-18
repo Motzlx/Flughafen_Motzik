@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.time.LocalDate;
 
 @Data
@@ -14,8 +13,6 @@ import java.time.LocalDate;
 @Builder
 @Embeddable
 public class PassagierFlug {
-
-
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(foreignKey = @ForeignKey(name = "FK_Passagier_2_Flug"))
     private Passagier passagier;
